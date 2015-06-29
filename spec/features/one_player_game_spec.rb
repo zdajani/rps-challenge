@@ -1,9 +1,12 @@
 require 'spec_helper'
 
-feature 'starting a one player game' do
-  scenario 'ask user for their name' do
+# Overall, great. Just try to make your tests a little lighter.
+
+feature 'starting a one player game' do # consider 'Playing a one player game'
+
+  scenario 'ask user for their name' do # consider 'user registers their name'
     visit '/'
-    expect(page).to have_content 'Welcome to Rock Paper Scissors!'
+    expect(page).to have_content 'Welcome to Rock Paper Scissors!' # tests are too prescriptive of the content of the page
     expect(page).to have_content 'Please enter your Name:'
     fill_in('name', with: 'Zeina')
     click_on "Begin Game"
@@ -11,13 +14,14 @@ feature 'starting a one player game' do
   end
 
   context 'playing the game' do
+
     before(:each) do
       visit '/'
       fill_in 'name', with: 'Zeina'
       click_on 'Begin Game'
     end
 
-    scenario 'selecting a choice' do
+    scenario 'selecting a choice' do # Same as above, too prescriptive of the content
       expect(current_path).to eq('/one_player_game')
       expect(page).to have_content "Please Choose One:"
       expect(page).to have_select "playerchoice"

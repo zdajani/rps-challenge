@@ -1,6 +1,7 @@
 require 'rps_game'
 
 describe RPSGame do
+
   it 'declares a tie when computer and player choose rock' do
     allow(subject).to receive(:computer) {"rock"}
     expect(subject.play "rock").to eq "It is a Tie!"
@@ -14,5 +15,6 @@ describe RPSGame do
   it 'declares player loser when they choose scissors against rock' do
     allow(subject).to receive(:computer) {"rock"}
     expect(subject.play "scissors").to eq "I am sorry You have Lost!"
-    end  
+  end  
+
 end

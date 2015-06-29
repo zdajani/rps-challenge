@@ -1,7 +1,6 @@
 require_relative 'player'
 
 class RPSGame
-
   attr_reader :player_1
 
   def initialize
@@ -9,14 +8,13 @@ class RPSGame
   end
 
 
-  def play choose
+  def play choose # try to refactor this: consider having rock paper and scissors be classes that know their win / lose conditions
     @player1_choice = choose
-    case
+    case 
       when @player1_choice == "rock" && self.computer == "paper"
         @player_1.lost
       when @player1_choice == "rock" && self.computer == "scissors"
         @player_1.win
-
       when @player1_choice == "paper" && self.computer == "rock"
         @player_1.win
 

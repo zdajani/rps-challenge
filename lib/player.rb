@@ -1,6 +1,5 @@
 class Player
-
-attr_accessor :choice, :won, :tie
+  attr_accessor :choice, :won, :tie
 
   def initalize
     @choice
@@ -9,12 +8,12 @@ attr_accessor :choice, :won, :tie
   end
 
   def choose rockpaperscissors
-    @choice = rockpaperscissors
+    @choice = rockpaperscissors # use attr_writers for setting the value of instance variables
   end
 
   def win
     self.won = true
-    "Congratulations You have Won!"
+    "Congratulations You have Won!" # Keep your presentational logic separate from business logic
   end
 
   def lost
@@ -36,7 +35,7 @@ attr_accessor :choice, :won, :tie
   end
 
   def tie?
-    @tie == true
+    @tie == true # you don't need an equality check with true. Just return the value that might be true or not
   end
 
 end
